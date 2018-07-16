@@ -5,7 +5,9 @@ var store = {
 		{title: "git clone hello-world-imba"}
 		{title: "npm install"}
 		{title: "npm run dev"}
-		{title: "play around"}
+		{title: "do somthing else"}
+		{title: "5th thing"}
+		{title: "6th thing"}
 	]
 }
 
