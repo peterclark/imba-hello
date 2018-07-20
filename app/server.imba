@@ -5,9 +5,9 @@ server.use(express.static('./dist'))
 server.set('view engine', 'pug')
 
 server.get '/' do |req,res|
-	res.render('index.pug')
+  res.render('index.pug')
 
 var port = process:env.PORT or 8080
 
 var server = server.listen(port) do
-	console.log 'server is running on port ' + port
+  console.log 'server is running on port ' + port
