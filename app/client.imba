@@ -24,4 +24,23 @@ tag App
         <li> item:title
 
 
-Imba.mount <App[store]>
+var main = document.getElementsByClassName('main')[0]
+Imba.mount <App[store]>, main
+
+tag Login < a
+
+  def open
+    window:netlifyIdentity.open()
+
+  def user
+    return window:netlifyIdentity.currentUser()
+
+  def render
+    <self.ui.inverted.button :tap.prevent.open>
+      if user
+        'Logout'
+      else
+        'Log in'
+
+var auth = document.getElementsByClassName('auth')[0]
+Imba.mount <Login>, auth 

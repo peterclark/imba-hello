@@ -3,10 +3,66 @@ html(lang='en')
   head
     title Imba - Hello World!
     meta(charset="utf-8")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" media="screen")
     link(rel="stylesheet" href="/index.css" media="screen")
+    script(type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js")
+
   body
-    h1 IMBA
-    div(data-netlify-identity-menu)
-    script(src="/client.js")
+
+    .ui.vertical.inverted.sidebar.menu
+      a.active.item Home
+      a.item Work
+      a.item Company
+      a.item Careers
+      a.item Login
+      a.item Signup
+
+    .pusher
+      .ui.inverted.vertical.masthead.center.aligned.segment
+        .ui.container
+          .ui.large.secondary.inverted.pointing.menu
+            a.toc.item
+              i.sidebar.icon
+            a.active.item Home
+            a.item Work
+            a.item Company
+            a.item Careers
+            .right.item.auth
+        .ui.text.container
+          h1.ui.inverted.header
+            | Imagine-a-Company
+          h2 Do whatever you want when you want to.
+
+      .ui.vertical.stripe.segment.main
+
+      .ui.inverted.vertical.footer.segment
+        .ui.container
+          .ui.stackable.inverted.divided.equal.height.stackable.grid
+            .three.wide.column
+              h4.ui.inverted.header About
+              .ui.inverted.link.list
+                a.item(href='#') Sitemap
+                a.item(href='#') Contact Us
+                a.item(href='#') Religious Ceremonies
+                a.item(href='#') Gazebo Plans
+            .three.wide.column
+              h4.ui.inverted.header Services
+              .ui.inverted.link.list
+                a.item(href='#') Banana Pre-Order
+                a.item(href='#') DNA FAQ
+                a.item(href='#') How To Access
+                a.item(href='#') Favorite X-Men
+            .seven.wide.column
+              h4.ui.inverted.header Footer Header
+              p
+                | Extra space for a call to action inside the footer that could help re-engage users.
+
     script(type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js")
+    script(src="/client.js")
+    script.
+      $('.ui.sidebar').sidebar('attach events','.toc.item')
+      netlifyIdentity.on('logout', () => Imba.commit())
+      netlifyIdentity.on('login', () => Imba.commit())
+      Imba.commit()
 
