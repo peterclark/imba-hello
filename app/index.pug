@@ -29,10 +29,10 @@ html(lang='en')
             a.item Company
             a.item Careers
             .right.item.auth
-        .ui.text.container
-          h1.ui.inverted.header
-            | Imagine-a-Company
-          h2 Do whatever you want when you want to.
+        //- .ui.text.container
+        //-   h1.ui.inverted.header
+        //-     | Imagine-a-Company
+        //-   h2 Do whatever you want when you want to.
 
       .ui.vertical.stripe.segment.main
 
@@ -47,6 +47,7 @@ html(lang='en')
     script(src="/client.js")
     script.
       $('.ui.sidebar').sidebar('attach events','.toc.item')
+      $('.ui.checkbox').checkbox()
       netlifyIdentity.on('logout', () => Imba.commit())
       netlifyIdentity.on('login', () => Imba.commit())
       Imba.commit()

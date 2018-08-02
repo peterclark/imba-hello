@@ -1,18 +1,18 @@
 var store = {
   title: ""
   items: [
-    {title: "git clone hello-world-imba"}
-    {title: "npm install"}
-    {title: "npm run dev"}
-    {title: "do somthing else"}
-    {title: "5th thing"}
-    {title: "9th thing"}
+    {done: false, title: "git clone hello-world-imba"}
+    {done: true, title: "npm install"}
+    {done: false, title: "npm run dev"}
+    {done: false, title: "do somthing else"}
+    {done: false, title: "5th thing"}
+    {done: false, title: "9th thing"}
   ]
 }
 
 tag App
   def addItem
-    data:items.push(title: data:title)
+    data:items.push(title: data:title, done: false)
     data:title = ""
 
   def removeItem index
@@ -29,8 +29,14 @@ tag App
               <button.ui.primary.button :tap.addItem> 'Add item'
       <div.ui.segments.text.container> for item,index in data:items
         <div.ui.segment.flex.space-between.align-items-center>
-          item:title
-          <a :tap.removeItem(index)>
+          <div.flex.align-items-center>
+            <a.ui.green.ribbon.label .hidden=!item:done>
+              <i.check.icon>
+            <div.inline.field>
+              <div.ui.toggle.checkbox>
+                <input[item:done].hidden type="checkbox" tabindex="0">
+                <label .done=item:done> item:title
+          <a href='' :tap.removeItem(index)>
             <i.red.close.icon>
 
 
