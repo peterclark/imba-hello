@@ -14,14 +14,24 @@ tag App
   def addItem
     data:items.push(title: data:title)
     data:title = ""
+
+  def removeItem index
+    data:items.splice(index,1)
         
   def render
-    <self.vbox>
-      <header>
-        <input[data:title] placeholder="New..." :keyup.enter.addItem>
-        <button :tap.addItem> 'Add item'
-      <ul> for item in data:items
-        <li> item:title
+    <self>
+      <div.ui.raised.very.padded.text.container.segment>
+        <div.ui.form>
+          <div.fields>
+            <div.twelve.wide.field>
+              <input[data:title] placeholder="New..." :keyup.enter.addItem>
+            <div.four.wide.field>
+              <button.ui.primary.button :tap.addItem> 'Add item'
+      <div.ui.segments.text.container> for item,index in data:items
+        <div.ui.segment.flex.space-between.align-items-center>
+          item:title
+          <a :tap.removeItem(index)>
+            <i.red.close.icon>
 
 
 var main = document.getElementsByClassName('main')[0]
